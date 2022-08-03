@@ -9,3 +9,5 @@ function numToBase(a, b) {
     return num && base && base > 1 && base < 37 ?
            num.toString(base) : 'Некорректный ввод';
 }
+
+console.log(numToBase(a, b));
