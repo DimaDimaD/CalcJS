@@ -1,13 +1,10 @@
-let a = prompt('Введите число:');
-let b = prompt('Введите систему исчисления:');
+function numToBase() {
 
-function numToBase(a, b) {
+    const num = +prompt('Введите число:');;
+    const base = +prompt('Введите систему исчисления:');
 
-    let num = Number(a);
-    let base = Number(b);
-
-    return num && base && base > 1 && base < 37 ?
+    return num && base > 1 && base < 37 ?
            num.toString(base) : 'Некорректный ввод';
 }
 
-console.log(numToBase(a, b));
+console.log(numToBase());

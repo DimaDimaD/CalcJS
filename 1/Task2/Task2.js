@@ -1,11 +1,20 @@
-let a = prompt('Введите первое число:');
-let b = prompt('Введите второе число:');
+function sumAndDif() {
 
-function sumAndDif(a, b) {
+    const num1 = +prompt('Введите первое число:');
+    const num2 = +prompt('Введите второе число:');
+
+    if (!num1) {
+        return 'Некорректный ввод';
+    }
     
-    return !Number(a) ? 'Некорректный ввод' :
-            !Number(b) || Number(b) == 0 ? 'Некорректный ввод' : 
-                `Ответ: ${Number(a) + Number(b)}, ${Number(a) / Number(b)}`;
+    else if (!num2 || num2 == 0) {
+        return 'Некорректный ввод';
+    }
+
+    else {
+        return `Ответ: ${num1 + num2}, ${num1 / num2}`;
+    }
 }
 
-console.log(sumAndDif(a, b));
+console.log(sumAndDif());
+
