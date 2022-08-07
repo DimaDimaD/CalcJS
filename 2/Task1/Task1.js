@@ -13,4 +13,3 @@ function makeObjectDeepCopy(obj) {
 
         return copyObj;
     }
-}
