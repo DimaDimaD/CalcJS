@@ -44,4 +44,3 @@ function checkArrNum(arr) {
     return  true;
 }
 
-console.log(selectFromInterval([6, 1, 4, 2], 6, 3))
