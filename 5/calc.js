@@ -107,10 +107,21 @@ document.querySelector('.buttons').onclick = (event) => {
     //     console.log(firstNum, secondNum, operation);
     // }
 
-    //нажата кнопка +/-
-    // if (plusMinus.includes(pushButt)) {
-    //     if
-    // }
+    // нажата кнопка +/-
+    if (plusMinus.includes(pushButt)) {
+
+        if (secondNum === '' && operation === '') {
+            firstNum = changeSign(firstNum);
+            console.log(firstNum, secondNum, operation);
+            calcScreen.textContent = firstNum;
+        }
+
+        else if (firstNum !== '' && secondNum !== '') {
+            secondNum = changeSign(secondNum);
+            calcScreen.textContent = secondNum;
+            console.log(firstNum, secondNum, operation);
+        }
+    }
 
     // нажата кнопка =
     if (pushButt === '=') {
