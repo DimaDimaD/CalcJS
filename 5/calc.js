@@ -42,7 +42,7 @@ function floatLength(number) {
 }
 
 
-//функция удаления последнего символа, еще не добавлена
+//функция удаления последнего символа
 function deleteSymbol(str) {
     if (str.length > 1) { return str.substring(0,str.length - 1); }
     else { return ''; }
