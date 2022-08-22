@@ -110,12 +110,27 @@ document.querySelector('.buttons').onclick = (event) => {
     // нажата кнопка +/-
     if (plusMinus.includes(pushButt)) {
 
+        //вводится первое число
         if (secondNum === '' && operation === '') {
             firstNum = changeSign(firstNum);
             console.log(firstNum, secondNum, operation);
             calcScreen.textContent = firstNum;
         }
 
+        //после вычисления выражения (был нажат знак =)
+        else if (finish === true) {
+            firstNum = changeSign(firstNum);
+            calcScreen.textContent = firstNum;
+            console.log(firstNum, secondNum, operation);
+        }
+
+        // введено первое число и знак, второе не вводилось
+        else if (firstNum !== '' && operation !== '' && secondNum === '') {
+            calcScreen.textContent = operation;
+            console.log(firstNum, secondNum, operation);
+        }
+
+        //вводится второе число
         else if (firstNum !== '' && secondNum !== '') {
             secondNum = changeSign(secondNum);
             calcScreen.textContent = secondNum;
