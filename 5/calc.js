@@ -4,13 +4,17 @@ let secondNum = '';
 let operation = '';
 let finish = false;
 
+
 //значения для сравнения входных данных
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 const action = ['+', '-', '/', 'X'];
 const deleteButt = '\u{2192}';
 const plusMinus = '+/-';
 
+
+//подключаем экран калькулятора
 const calcScreen = document.querySelector('.calc-screen p');
+
 
 //функция all clear
 function ac() {
@@ -20,6 +24,7 @@ function ac() {
     finish = false;
     calcScreen.textContent = 0;
 }
+
 
 // функция подсчёта знаков после запятой
 function floatLength(number) {
@@ -36,24 +41,21 @@ function floatLength(number) {
     }
 }
 
+
 //функция удаления последнего символа, еще не добавлена
-function deleteSymbol() {
-    if (firstNum !== '' && operation !== '' && secondNum.length > 0) {
-        secondNum = secondNum.substring(0, secondNum.length - 1);
-    }
-    else if (secondNum === '' && operation === '' && firstNum.length > 0) {
-        firstNum = firstNum.substring(0, firstNum.length - 1);
-    }
+function deleteSymbol(str) {
+    if (str.length > 1) { return str.substring(0,str.length - 1); }
+    else { return ''; }
 }
 
-// функция смены знака, еще не добавлена
+// функция смены знака
 function changeSign(number) {
     const copyNumber = (-1) * number;
     return copyNumber;
 }
 
 
-
+//взаимодействие
 document.querySelector('.buttons').onclick = (event) => {
 
     // если нажали не на кнопку
@@ -65,6 +67,7 @@ document.querySelector('.buttons').onclick = (event) => {
     }
 
     calcScreen.textContent = '';
+
     //читаем нажатую кнопку
     const pushButt = event.target.textContent;
 
@@ -101,11 +104,28 @@ document.querySelector('.buttons').onclick = (event) => {
         return;
     }
 
-    //нажата кнопка "удалить символ" еще в разработке
-    // if (deleteButt.includes(pushButt)) {
-    //     deleteSymbol();
-    //     console.log(firstNum, secondNum, operation);
-    // }
+    // нажата кнопка "удалить символ"
+    if (deleteButt.includes(pushButt)) {
+
+        //пишется первое число
+        if (secondNum === '' && operation === '') {
+            firstNum = deleteSymbol(firstNum);
+            calcScreen.textContent = firstNum;
+            console.log(firstNum, secondNum, operation);
+        }
+
+
+        //пишется второе число
+        else if (firstNum !== '' && operation !== '') {
+            secondNum = deleteSymbol(secondNum);
+            calcScreen.textContent = secondNum;
+            console.log(firstNum, secondNum, operation);
+        }
+
+
+
+        console.log(firstNum, secondNum, operation);
+    }
 
     // нажата кнопка +/-
     if (plusMinus.includes(pushButt)) {
