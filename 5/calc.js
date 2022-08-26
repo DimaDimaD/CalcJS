@@ -1,8 +1,8 @@
-//данные на вход
+//принимаем входные данные: первое число, второе число, операция
 let firstNum = '';
 let secondNum = '';
 let operation = '';
-let finish = false;
+let finish = false; // показатель нажатой клавиши =
 
 
 //значения для сравнения входных данных
@@ -16,7 +16,7 @@ const plusMinus = '+/-';
 const calcScreen = document.querySelector('.calc-screen p');
 
 
-//функция all clear
+//функция all clear для удаления всех введенных данных
 function ac() {
     firstNum = '';
     secondNum = '';
@@ -55,7 +55,7 @@ function changeSign(number) {
 }
 
 
-//взаимодействие
+//взаимодействие через нажатие клавиш на экране
 document.querySelector('.buttons').onclick = (event) => {
 
     // если нажали не на кнопку
